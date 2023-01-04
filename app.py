@@ -1,10 +1,18 @@
 #!/bin/env python
 
 import subprocess
-from flask import Flask, request
+from flask import Flask, request, render_template
 
 app = Flask(__name__)
 
+@app.route('/map', methods=['GET'])
+def map():
+    return render_template('index.html')
+
+
+@app.route('/scene.yaml', methods=['GET'])
+def scene():
+    return render_template('scene.yaml')
 
 @app.route('/<path:file_to_read>', methods=['GET'])
 def read(file_to_read):
