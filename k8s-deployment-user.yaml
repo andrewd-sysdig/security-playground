@@ -1,26 +1,23 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: secplay
-
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: security-playground-user
-  namespace: secplay
+  name: security-playground
   labels:
-    app: security-playground-user
+    app: security-playground
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: security-playground-user
+      app: security-playground
   template:
     metadata:
       labels:
-        app: security-playground-user
+        app: security-playground
     spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
       affinity:
           nodeAffinity:
             requiredDuringSchedulingIgnoredDuringExecution:
@@ -32,9 +29,12 @@ spec:
                   - amd64
       containers:
       - name: security-playground-user
-        image: fernii/security-playground:2.0-user
+        image: ghcr.io/mikescholl-sysdig/security-playground:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
+        securityContext:
+          allowPrivilegeEscalation: false
 
 ---
 apiVersion: v1

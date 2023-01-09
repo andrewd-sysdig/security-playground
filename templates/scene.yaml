@@ -48,7 +48,7 @@ layers:
             lines:
                 order: function() { return feature.sort_rank; }
                 color: gray
-                width: 8
+                width: 10
                 cap: round
         highway:
             filter:
@@ -68,7 +68,7 @@ layers:
                 lines:
                     order: function() { return feature.sort_rank; }
                     color: lightgrey
-                    width: 5
+                    width: 8
 
     buildings:
         data: { source: nextzen }
