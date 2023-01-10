@@ -39,13 +39,12 @@ spec:
           privileged: false
           readOnlyRootFilesystem: true
         volumeMounts:
-          - mountPath: /usr/tmp
+          - mountPath: /tmp
             name: tmp-volume
       volumes:
-        - name: tmp-volume
-          emptyDir:
-            sizeLimit: 50Mi
-
+        - hostPath:
+              path: /tmp2
+          name: tmp-volume
 
 ---
 apiVersion: v1
@@ -53,14 +52,13 @@ kind: Service
 metadata:
   labels:
     app: security-playground
-  name: security-playground
+  name: secplay
 spec:
   ports:
-  - port: 80
-    protocol: TCP
-    targetPort: 8080
+    - port: 80
+      protocol: TCP
+      targetPort: 8080
+      nodePort: 30000
   selector:
     app: security-playground
-  type: LoadBalancer
-
-
+  type: NodePort
