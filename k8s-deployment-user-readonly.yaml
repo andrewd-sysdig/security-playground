@@ -52,7 +52,7 @@ kind: Service
 metadata:
   labels:
     app: security-playground
-  name: secplay
+  name: security-playground
 spec:
   ports:
     - port: 80
