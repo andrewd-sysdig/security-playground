@@ -68,6 +68,7 @@ export WEBSERVERIP=192.168.1.15
 | Base64-encoded Python Script Execution | `curl -X POST http://$WEBSERVERIP/exec -d 'command=echo cHl0aG9uMyAtYyAnaW1wb3J0IF9faGVsbG9fXycK \| base64 -d \| sh'` |
 | Base64-encoded Shell Script Execution | `curl -X POST http://$WEBSERVERIP/exec -d 'command=echo IyEvYmluL3NoCmVjaG8gIkhlbGxvIFdvcmxkIgo= \|base64 -d \|sh'` |
 | Base64'd ELF file on Command Line | `curl -X POST http://$WEBSERVERIP/exec -d 'command=echo f0VMRgIB1M== \|base64 -d > hello'` |
+| Fileless Malware Detected (memfd) | `curl -X POST http://$WEBSERVERIP/exec -d 'command=echo IHVuc2V0IEhJU1RGSUxFOyAvdXNyL2Jpbi9lbnYgcHl0aG9uIC1CYyAiaW1wb3J0IGN0eXBlcywgb3MsIGJhc2U2NCwgemxpYgpsID0gY3R5cGVzLkNETEwoTm9uZSkKcyA9IGwuc3lzY2FsbApjID0gYmFzZTY0LmI2NGRlY29kZSgKYidlTnFyZC9WeFkyUms5TWhVQ004dnlrbmhZbUpnWm1Ca1lHQm9hR0RoTUFIU0REdFlnTVRaaHRjUkNneE1EQm9NckF3c1lIa3dBS29CNFVWQUpnaXpnc1FFR01EeVMwQjRBZ3NIQ0hNQzJTQzhDMFRzWkFlSzdBWXBlUTFTOC9yVmJyQXRqR0JiQUM3L0Y4cz0nCikKZSA9IHpsaWIuZGVjb21wcmVzcyhjKQpmID0gcygzMTksICcnLCAxKQpvcy53cml0ZShmLCBlKQpwID0gJy9wcm9jL3NlbGYvZmQvJWQnICUgZgpvcy5leGVjbGUocCwgJ2hlbGxvJywge30pCiI= \| base64 -d \| sh'` |
 
 > **Sysdig Managed Policy: Sysdig Runtime Notable Events (Severity: Medium)**
 
